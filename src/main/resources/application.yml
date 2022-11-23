@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    config:
+      uri: http://172.17.0.1:8888
+      name: gateway-server
+      profile: test
+
+
+eureka:
+  client:
+    register-with-eureka: false # 3번
+    fetch-registry: false  # 4번
