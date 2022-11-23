@@ -1,12 +1,22 @@
+server:
+  port: 8000
+
 spring:
-  cloud:
-    config:
-      uri: http://172.17.0.1:8888
-      name: gateway-server
-      profile: test
+  application:
+    name: gateway-service
+#  cloud:
+#    config:
+#      uri: http://172.17.0.1:8888
+#      name: gateway-server
+#      profile: test
 
 
 eureka:
+  instance:
+    instance-id: gateway-msa-instance
+
   client:
-    register-with-eureka: false # 3번
-    fetch-registry: false  # 4번
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
