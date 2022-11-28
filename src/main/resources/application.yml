@@ -4,12 +4,19 @@ server:
 spring:
   application:
     name: gateway-service
+
+    cloud:
+      gateway:
+        routes:
+          - id: user-service
+            uri: http://localhost:50010
+            predicates:
+              - Path=/user/**
 #  cloud:
 #    config:
 #      uri: http://172.17.0.1:8888
 #      name: gateway-server
 #      profile: test
-
 
 eureka:
   instance:
